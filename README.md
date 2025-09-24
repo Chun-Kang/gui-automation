@@ -14,4 +14,4 @@ The project uses Python + PyAutoGUI to simulate human operations on Granblue Fan
 ```bash
 git clone https://github.com/Chun-Kang/gui-automation.git
 cd gui-automation
-pip install -r requirements.txt
+pip install pyautogui
