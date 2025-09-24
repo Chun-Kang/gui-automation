@@ -42,30 +42,10 @@ time.sleep(0.8)  # 等待視窗 focus
 print("程式 5 秒後開始...")
 time.sleep(5)
 
-
-def click_at(button_center=None):
-    # 將 PyAutoGUI 回傳的物理像素座標轉換為邏輯像素
-    x, y = button_center
-    x = int(x / scale)
-    y = int(y / scale)
-
-    offset_range = 10  # 最多 ±5 像素
-
-    x_offset = random.randint(-offset_range, offset_range)
-    y_offset = random.randint(-offset_range, offset_range)
-
-    x_click = x + x_offset
-    y_click = y + y_offset
-
-    print(f"點擊座標 (邏輯像素): x={x_click}, y={y_click}")
-
-    # 點擊
-    pyautogui.moveTo(x_click, y_click, duration=0)
-    pyautogui.click()
-    print(f"已點擊 {img_name}！")
-    
+# -----------------------------
+# 模擬人為移動滑鼠
+# -----------------------------
 def human_like_move(button_center):
-    # 模擬人為移動滑鼠
     x, y = button_center
     x = int(x / scale)
     y = int(y / scale)
@@ -82,12 +62,17 @@ def human_like_move(button_center):
     duration = random.uniform(0.2, 0.5)  # 移動時間
     pyautogui.moveTo(x, y, duration=duration)
 
+# -----------------------------
+# 模擬人為點擊
+# -----------------------------
 def human_like_click(button_center):
-    # 模擬人為點擊
     human_like_move(button_center)
     time.sleep(random.uniform(0.2, 1.0))  # 點擊前隨機延遲
     pyautogui.click()
 
+# -----------------------------
+# 點擊圖片
+# -----------------------------
 def click_image(image_path, confidence=0.9):
     # 最多等待 30 秒
     for _ in range(30):
